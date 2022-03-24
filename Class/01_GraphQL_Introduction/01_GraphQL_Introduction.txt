@@ -1,0 +1,45 @@
+*) What is GraphQL?
+    -> GraphQL is a powerful query language use to communicate between client and server
+    -> Allows for a more flexible and efficient approach than REST
+
+EX:
+    -> Endpoint for getting a particular book:
+        domain.com/books/:id
+            -> title, genre, reviews, author id
+    
+    -> now if we want to make a request using author id then we will make another request
+    -> Endpoint for getting the author info of that book:
+        -> domain.com/authors/:id
+            -> name, age, biography, bookIDs
+
+    -> if we are making the complex application in that case it would be slower to query 
+# A GraphQL Approach....
+    -> Query to get book data and it's author data(AND the other books):
+        -> {
+            book(id: 123){
+                title
+                genre
+                reviews
+                author{
+                    name
+                    bio
+                    books{
+                        name
+                    }
+                }
+            }
+        }
+    -> here all of this is one request and all of that nested information can be able to get by one single http request
+    -> we can also filter the only field that we want:
+        -> {
+            book(id: 123){
+                title
+                author{
+                    name
+                    bio
+                    books{
+                        name
+                    }
+                }
+            }
+        }

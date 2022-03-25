@@ -1,0 +1,11 @@
+*) Queries:
+    {
+        books{ // endpoint
+            name // what we want form that endpoint
+            genre
+            author{ // relational data
+                name
+                age
+            }
+        }
+    }

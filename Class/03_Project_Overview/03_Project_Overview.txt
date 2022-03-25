@@ -1,0 +1,14 @@
+*) Project overview:
+    -> Server (node.js)
+        -> Express App
+        -> GraphQl Server
+
+*) Database:
+    -> MongoDB
+
+*) Frontend(Client)
+    -> React App
+    -> Apollo (this will allow use to use graphql on the frontend inside react)
+
+
+=> Graphiql -> Graphiql is a dummy frontend application allow us to test out our graphql server

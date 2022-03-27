@@ -5,6 +5,10 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import "./index.css";
 
+/*
+  -> now rather then create query on same file component we will create another file 'queries.js' and put all the queries on that file
+*/
+
 const client = new ApolloClient({
   uri: "http://localhost:8080/graphql",
 });

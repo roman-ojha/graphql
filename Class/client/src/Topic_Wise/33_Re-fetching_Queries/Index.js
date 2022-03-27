@@ -8,6 +8,10 @@ const client = new ApolloClient({
   uri: "http://localhost:8080/graphql",
 });
 
+/*
+  -> after we added the book we want to re-fetch the book and so to component
+*/
+
 const Index = () => {
   return (
     <>

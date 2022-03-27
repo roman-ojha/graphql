@@ -1,23 +1,11 @@
 import React, { useState } from "react";
 import { graphql } from "react-apollo";
 import { flowRight as compose } from "lodash";
-import { getAuthorsQuery, addBookMutation } from "../services/queries/queries";
-
-/*
-  -> so previously we had use 'addBookMutation()' to mutate to add book but we have not pass any value on that mutation
-  -> to get the value that we have send from client to graphQl mutation there is a method called 'query variable'
-  -> when we will mutate at that time we have to pass all the possible mutation value:
-    -> const addBookMutation = gql`
-          mutation($name: String!, $genre: String!, $authorId: ID!) {
-            // $<Query_variable>: <Type>
-            // ! = Not Null(require)
-            addBook(name: "", genre: "", authorId: "") {
-              name
-              genre
-            }
-          }
-        `;
-*/
+import {
+  getAuthorsQuery,
+  addBookMutation,
+  getBooksQuery,
+} from "../services/queries/queries";
 
 const AddBook = (props) => {
   const [addBookField, setAddBookField] = useState({
@@ -42,11 +30,13 @@ const AddBook = (props) => {
     e.preventDefault();
     props.addBookMutation({
       variables: {
-        // now here we can pass the query variables
         name: addBookField.name,
         genre: addBookField.genre,
         authorId: addBookField.authorId,
       },
+      // now after we had mutate if we want to render that mutated book we have to re-fetch that book for that graphQL provide us 'refetchQueries'
+      refetchQueries: [{ query: getBooksQuery }],
+      // [<different_query_that_we_want_to_re-fetch>]
     });
   };
   return (

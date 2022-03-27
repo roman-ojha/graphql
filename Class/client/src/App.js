@@ -1,5 +1,5 @@
 import React from "react";
-import Index from "./Topic_Wise/31_Composing_Queries/Index";
+import Index from "./Topic_Wise/32_Query_Variables/Index";
 
 const App = () => {
   return (

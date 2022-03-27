@@ -1,5 +1,5 @@
 import React from "react";
-import Index from "./Topic_Wise/26_Making_Queries/Index";
+import Index from "./Topic_Wise/28_Add_Book_Component/Index";
 
 const App = () => {
   return (

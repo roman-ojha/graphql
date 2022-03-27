@@ -3,10 +3,13 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
+const cors = require("cors");
+// Allow cross-origin request
 const app = express();
 const port = 8080;
 const DB = process.env.DATABASE;
 
+app.use(cors());
 mongoose
   .connect(DB, {
     useNewUrlParser: true,

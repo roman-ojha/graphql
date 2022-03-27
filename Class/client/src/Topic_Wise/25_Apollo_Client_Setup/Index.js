@@ -18,7 +18,7 @@ import "./index.css";
 // apollo client setup
 const client = new ApolloClient({
   // while doing setup for apollo client it will need the endpoint that we are making request and query
-  uri: "http://localhost:8080",
+  uri: "http://localhost:8080/graphql",
 });
 
 const Index = () => {

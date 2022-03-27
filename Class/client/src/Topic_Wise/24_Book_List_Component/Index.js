@@ -3,10 +3,15 @@
 */
 
 import React from "react";
+import BookList from "./react-components/BookList";
 import "./index.css";
 
 const Index = () => {
-  return <div>Index</div>;
+  return (
+    <>
+      <BookList />
+    </>
+  );
 };
 
 export default Index;

@@ -9,11 +9,15 @@ const {
   GraphQLID,
   GraphQLInt,
   GraphQLList,
+  GraphQLNonNull,
 } = graphql;
 const _ = require("lodash");
 
 /*
-  -> now we will update all the query resolve function to get the data from mongodb
+  -> when while doing mutation if user don't pass all the relevant argument how we can prevent to store it into a database 
+  -> so to solve that problem we just need 'GraphQLNonNull' object type
+  -> and  we just need to do:
+    -> new GraphQLNonNull(GraphQLString),
 */
 
 const BookType = new GraphQLObjectType({
@@ -105,10 +109,10 @@ const Mutation = new GraphQLObjectType({
       type: AuthorType,
       args: {
         name: {
-          type: GraphQLString,
+          type: new GraphQLNonNull(GraphQLString),
         },
         age: {
-          type: GraphQLInt,
+          type: new GraphQLNonNull(GraphQLInt),
         },
       },
       async resolve(parent, args) {
@@ -124,13 +128,14 @@ const Mutation = new GraphQLObjectType({
       type: BookType,
       args: {
         name: {
-          type: GraphQLString,
+          type: new GraphQLNonNull(GraphQLString),
+          // so here we are making nonNullable argument it means that if user did not pass us this argument that we don't except that mutation
         },
         genre: {
-          type: GraphQLString,
+          type: new GraphQLNonNull(GraphQLString),
         },
         authorId: {
-          type: GraphQLID,
+          type: new GraphQLNonNull(GraphQLID),
         },
       },
       resolve(parent, args) {

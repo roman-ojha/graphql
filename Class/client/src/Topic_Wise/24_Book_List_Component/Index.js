@@ -1,7 +1,3 @@
-/*
-    -> npx create-react-app
-*/
-
 import React from "react";
 import BookList from "./react-components/BookList";
 import "./index.css";

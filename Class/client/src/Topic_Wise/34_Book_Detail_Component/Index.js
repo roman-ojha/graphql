@@ -10,6 +10,7 @@ const client = new ApolloClient({
 
 /*
    -> now here we want to get the detail information about book when we will click on the specific book from the list of books
+   -> and we will also create a 'BookDetail.js' component to show the detail about book
    -> for that we need to create another query to get the book by passing the book id as the query variable:
       -> const getBookQuery = gql`
               query ($id: String) {

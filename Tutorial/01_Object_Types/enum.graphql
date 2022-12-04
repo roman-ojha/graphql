@@ -1,0 +1,13 @@
+# enum is the pre defined type value that specific field can accept
+enum Role {
+  ADMIN
+  USER
+}
+
+type User {
+  id: Int!
+  name: String!
+  email: String!
+  # using enum type on role
+  role: Role!
+}

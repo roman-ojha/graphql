@@ -26,7 +26,7 @@ const RootQuery = new GraphQLObjectType({
     book: {
       // here 'book' is the name of query
       type: BookType,
-      // and type is the 'BookType',
+      // 'type' is the return type that user will get after query
       args: {
         // and we have to pass the argument
         // so when someone query 'BookType' then that user need to pass some argument to get the particular data

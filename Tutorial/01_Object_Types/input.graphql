@@ -1,51 +1,26 @@
-# These are the way that we can query/request to graphQL
-query getUser($id: Int!) {
-  user(id: $id) {
-    name
-    email
-  }
-  users {
-    name
-    email
-  }
-}
-query getUserAndPost($userId1: Int!, $userId2: Int!, $postId: Int!) {
-  user1: user(id: $userId1) {
-    ...userFields
-  }
-  user2: user(id: $userId2) {
-    ...userFields
-  }
-  post(id: $postId) {
-    ...postFields
-  }
-}
-fragment userFields on User {
-  name
-  email
-}
-fragment postFields on Post {
-  caption
-  user_id
+# The input type in a GraphQL schema is a special object type that groups a set of arguments together, and can then be used as an argument to another field.
+# https://www.apollographql.com/tutorials/side-quest-intermediate-schema-design/the-input-type
+
+enum Role {
+  ADMIN
+  USER
 }
 
-mutation addNewUser($newUserName: String!, $newUserGmail: String!) {
-  addUser(name: $newUserName, email: $newUserGmail) {
-    ...userFields
-  }
-}
-mutation addNewPost($userPostCaption: String, $postOnUserId: Int!) {
-  addPost(caption: $userPostCaption, user_id: $postOnUserId) {
-    ...postFields
-  }
+type User {
+  id: Int!
+  name: String!
+  email: String!
+  role: Role!
 }
 
-query test {
-  user(id: 1) {
-    name
-    email
-    posts {
-      caption
-    }
-  }
+# Creating Input Type for 'addUser' argument
+input addUserInput {
+  name: String!
+  email: String!
+  role: Role!
+}
+
+type Mutation {
+  # using 'addUserInput' type of argument into 'addUser' Mutation
+  addUser(criteria: addUserInput): User!
 }

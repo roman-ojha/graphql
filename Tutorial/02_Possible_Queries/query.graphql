@@ -19,6 +19,8 @@ query getUserAndPost($userId1: Int!, $userId2: Int!, $postId: Int!) {
     ...postFields
   }
 }
+
+# https://www.apollographql.com/tutorials/side-quest-intermediate-schema-design/query-fragments
 fragment userFields on User {
   name
   email

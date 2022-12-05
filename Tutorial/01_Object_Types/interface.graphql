@@ -1,0 +1,24 @@
+# An interface is an abstract type that defines a common set of fields that any number of object types can then include.
+
+# User interface that can be use by any Object type but that type need to define all of these define type in interface
+
+interface User {
+  id: Int!
+  name: String!
+  email: String!
+}
+
+type Admin implements User {
+  # included every field that we defined inside Interface
+  id: Int!
+  name: String!
+  email: String!
+  # added new filed only for Admin user
+  password: String!
+}
+
+type Guest implements User {
+  id: Int!
+  name: String!
+  email: String!
+}

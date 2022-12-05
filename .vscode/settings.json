@@ -1,0 +1,4 @@
+{
+  "graphql-config.load.legacy": true,
+  "graphql-config.load.filePath": "./graphql.config.js"
+}

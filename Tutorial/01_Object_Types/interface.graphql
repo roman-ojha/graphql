@@ -22,3 +22,10 @@ type Guest implements User {
   name: String!
   email: String!
 }
+
+# you can also return an Interface type
+type Review {
+  author: User!
+}
+# learn more about Interface return type
+# https://www.apollographql.com/tutorials/side-quest-intermediate-schema-design/interface

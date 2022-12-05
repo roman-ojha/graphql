@@ -1,0 +1,53 @@
+# When you define a union type, you declare which object types are included in the union:
+
+type Book {
+  title: String!
+}
+
+type Author {
+  name: String!
+}
+
+union SearchResult = Book | Author
+
+type Query {
+  search(contains: String): [SearchResult!]
+  # This list can include both Book and Author objects
+}
+
+# while querying a Union:
+query GetSearchResults {
+  search(contains: "Shakespeare") {
+    # Querying for __typename is almost always recommended,
+    # but it's even more important when querying a field that
+    # might return one of multiple types.
+    __typename
+    ... on Book {
+      title
+    }
+    ... on Author {
+      name
+    }
+  }
+}
+
+# Resolving the union
+# https://www.apollographql.com/docs/apollo-server/schema/unions-interfaces/#resolving-a-union
+# const resolvers = {
+#   SearchResult: {
+#     __resolveType(obj, contextValue, info){
+#       // Only Author has a name field
+#       if(obj.name){
+#         return 'Author';
+#       }
+#       // Only Book has a title field
+#       if(obj.title){
+#         return 'Book';
+#       }
+#       return null; // GraphQLError is thrown
+#     },
+#   },
+#   Query: {
+#     search: () => { ... }
+#   },
+# };

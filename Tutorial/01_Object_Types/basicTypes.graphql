@@ -1,0 +1,19 @@
+# This Book type has two fields: title and author
+type Book {
+  title: String # returns a String
+  author: Author # returns an Author
+}
+
+type Author {
+  name: String
+  books: [Book] # A list of Books
+}
+
+type Author {
+  name: String! # Can't return null
+  books: [Book]
+}
+
+type Author {
+  books: [Book!]! # This list can't be null AND its list *items* can't be null
+}

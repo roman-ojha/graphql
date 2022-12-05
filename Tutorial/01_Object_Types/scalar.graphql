@@ -1,0 +1,15 @@
+# Scalar types
+# Scalar types are similar to primitive types in your favorite programming language. They always resolve to concrete data.
+# GraphQL's default scalar types are:
+
+# Int: A signed 32‐bit integer
+# Float: A signed double-precision floating-point value
+# String: A UTF‐8 character sequence
+# Boolean: true or false
+# ID (serialized as a String): A unique identifier that's often used to refetch an object or as the key for a cache. Although it's serialized as a String, an ID is not intended to be human‐readable.
+
+# Although these scalars cover the majority of use cases, some applications need to support other atomic data types (such as Date) or add validation to an existing type. To enable this, you can define custom scalar types.
+
+# https://www.apollographql.com/docs/apollo-server/schema/custom-scalars
+# Defining a custom scalar:
+scalar MyCustomScalar

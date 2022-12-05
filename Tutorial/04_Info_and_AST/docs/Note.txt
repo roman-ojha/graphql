@@ -1,0 +1,8 @@
+https://youtu.be/XIlPRypoNOg
+*) Use Cases:
+    1. Scoped Selections
+        -> takeing the information from the graphql query and using that to inform database that which field it should get back
+    2. Sorts and Limits from sub-selections
+    3. Scoped Queries from intersecting Auth info
+        -> https://youtu.be/XIlPRypoNOg?t=702
+    4. Protection from deeply Nested Queries

@@ -1,0 +1,18 @@
+=> First we will create a model
+
+*) Install Graphene
+=> To make working of graphql in Python we will use package 'graphene-django'
+    -> https://pypi.org/project/graphene-django/
+    -> pip install graphene-django
+    -> on settings.py:
+        INSTALLED_APPS = [
+            # ...
+            'graphene_django',
+        ]
+
+        GRAPHENE = {
+            'SCHEMA': 'myapp.schema.schema'
+        }
+        
+-> now we will create schema on './books/schema.py'
+-> now we will create urls to access the GraphQL

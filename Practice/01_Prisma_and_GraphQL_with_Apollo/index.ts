@@ -6,6 +6,7 @@ import http from "http";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { readFileSync } from "fs";
+import { createContext } from "./graphql/context";
 
 const typeDefs = readFileSync("./schema/schema.graphql", { encoding: "utf-8" });
 

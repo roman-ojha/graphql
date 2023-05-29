@@ -1,12 +1,23 @@
 import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { Request, Response, request } from "express";
 
 export interface Context {
-  db: PrismaClient;
+  // db: PrismaClient;
+  req: Request;
+  res: Response;
 }
 
-export async function createContext({ req, res }): Promise<Context> {
+const createContext = (
+  req: Request,
+  res: Response
+  // db: PrismaClient
+): Context => {
+  // console.log(db);
   return {
-    db: prisma,
+    // db,
+    req,
+    res,
   };
-}
+};
+
+export { createContext };

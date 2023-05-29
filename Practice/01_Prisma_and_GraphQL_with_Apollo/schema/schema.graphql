@@ -1,15 +1,27 @@
 type User {
   id: ID!
+  email: String
+  password: String
   name: String
   posts: [Post]
 }
 
 type Post {
   id: ID!
-  title: String
+  title: String!
+  content: String
+  published: Boolean!
+  user: User!
 }
 
 type Query {
-  user: User
-  post: Post
+  getUser(id: Int!): User
+  getPost(id: Int!): Post
+  getUsers: [User]
+  getPosts: [Post]
+}
+
+type Mutation {
+  addUser(name: String!): User
+  addPost(user_id: String!, title: String!, content: String): Post
 }
